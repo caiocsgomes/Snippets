@@ -1,0 +1,18 @@
+//In each step the command are applied on the temporary container created on the previously step
+
+//Base image
+FROM node:alpine AS builder
+
+
+//sets working directory
+WORKDIR '/app'
+COPY package.json . 
+RUN npm install
+COPY . .
+RUN npm run build
+
+//Finishes the previous block and start a new one
+FROM nginx
+
+//copies only the necessary code (build) to the nginx container
+COPY --from=builder /app/build /usr/share/nginx/html

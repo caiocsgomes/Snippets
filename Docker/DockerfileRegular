@@ -1,0 +1,15 @@
+//In each step the command are applied on the temporary container created on the previously step
+
+//Base image
+FROM node:alpine AS builder
+
+
+//sets working directory
+WORKDIR '/app'
+COPY package.json . 
+RUN npm install
+COPY . .
+
+
+//Sets default command for when the image is instantiated
+CMD ["npm", "run", "start"]

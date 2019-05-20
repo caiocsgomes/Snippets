@@ -1,0 +1,35 @@
+//The command overrides the default command for the image
+//run = create + start
+//sh: gets an unix shell
+//t: tags an id to the container created
+//p: routes from the port p1 from the computer to the port p2 of the container
+docker run 'image' command
+docker run 'image' sh
+docker run -t 'tag' .
+docker run -p p1:p2 id
+
+//Shows the running containers and -a shows all the containers ever created
+docker ps
+docker ps -a
+
+//Removes stopped containers
+docker system prune
+
+//start: launch a containcer previously stopped. -a shows output
+docker start container
+docker start container -a 
+
+//emmits the logs from the container
+docker logs 'id'
+
+//shuts down container giving time to the container do clean up
+docker stop 'id'
+
+//kills the container right away and does not give time for it to finish
+docker kill 'id'
+
+//runs a command in a running container
+//it: keep STDIN open and allocate TTY
+//sh: gets an unix shell
+docker exec -it 'id' 'command'
+docker exec -it 'id' sh 

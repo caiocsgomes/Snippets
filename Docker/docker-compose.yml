@@ -1,0 +1,23 @@
+//creates the containers on the same network
+
+version: "3"
+
+//containers
+services: 
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports: "3000:3000"
+    //references to the folder the image is located
+    volumes: 
+      -/app/node_modules
+      -.:/app
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes: 
+      -/app/node_modules
+      -.:/app
+    command: ["npm", "run", "test"]
