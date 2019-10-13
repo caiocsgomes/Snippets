@@ -1,0 +1,11 @@
+//create migrations on folder with Startup.cs (ef client needs an app to create a migration and DbContext)
+dotnet ef migrations add FirstMigration
+
+//run migration in current folder
+dotnet ef database update
+
+//use -v to log the entire output
+dotnet ef -v migrations add First
+
+//output the migration in another folder
+sudo dotnet ef migrations add FirstMigration -c <folderwithcontext> -o <output_folder>

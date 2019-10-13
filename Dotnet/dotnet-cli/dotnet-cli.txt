@@ -1,0 +1,8 @@
+//most used projects
+dotnet new (web (emppty project), react, webapi, classlib, mvc)
+
+//add package
+dotnet add package <package_name> --version x.x
+
+//add reference
+dotnet add <csproj_to> reference <csproj_from>
